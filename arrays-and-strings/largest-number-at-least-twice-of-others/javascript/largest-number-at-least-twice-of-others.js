@@ -17,23 +17,51 @@ Solution 1:
     Space complexity: O(1)
 */
 
+// const dominantIndex = nums => {
+//     if (nums.length === 1) {
+//         return 0;
+//     }
+
+//     let maxIndex = 0;
+//     for (let i = 1; i < nums.length; i++) {
+//         if (nums[i] > nums[maxIndex]) {
+//             maxIndex = i;
+//         }
+//     }
+
+//     for (let i = 0; i < nums.length; i++) {
+//         if (i !== maxIndex && nums[maxIndex] < nums[i] * 2) {
+//             return -1;
+//         }
+//     }
+
+//     return maxIndex;
+// }
+
+/* 
+Can we accomplish this in a single pass?
+
+What if had two variables, largest and a nextLargest and identified those numbers in one pass? 
+Then all we'd have to do next, is compare the largest with the nextLargest * 2
+*/
+
+
 const dominantIndex = nums => {
-    let max = nums[0];
-    let maxIndex = 0;
-    for (let i = 1; i < nums.length; i++) {
-        if (nums[i] > max) {
-            max = nums[i];
-            maxIndex = i;
+    if (nums.length === 1) {
+        return 0;
+    }
+
+    let [largestIndex, secondLargestIndex] = nums[0] >= nums[1] ? [0, 1] : [1, 0];
+    for (let i = 2; i < nums.length; i++){
+        if (nums[i] > nums[largestIndex]) {
+            secondLargestIndex = largestIndex;
+            largestIndex = i;
+        } else if (nums[i] > nums[secondLargestIndex]) {
+            secondLargestIndex = i;
         }
     }
 
-    for (let i = 0; i < nums.length; i++) {
-        if (i !== maxIndex && max < nums[i] * 2) {
-            return -1;
-        }
-    }
-
-    return maxIndex;
-}
+    return nums[largestIndex] >= nums[secondLargestIndex] * 2 ? largestIndex : -1;
+ }
 
 module.exports = dominantIndex;
