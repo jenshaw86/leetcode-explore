@@ -1,0 +1,22 @@
+{
+  "name": "leetcode-explore",
+  "version": "1.0.0",
+  "description": "Getting some practice and review through Leetcode's Explore feature.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jenshaw86/leetcode-explore.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jenshaw86/leetcode-explore/issues"
+  },
+  "homepage": "https://github.com/jenshaw86/leetcode-explore#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
