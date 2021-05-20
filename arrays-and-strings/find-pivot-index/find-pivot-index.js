@@ -24,14 +24,12 @@ const findPivotIndex = nums => {
     let sum = nums.reduce((a,c) => a + c);
 
     let leftCount = 0;
-    let rightCount = sum - nums[0];
     for (let i = 0; i < nums.length; i++) {
-        if (leftCount === rightCount) {
+        if (leftCount === sum - leftCount - nums[i]) {
             return i;
         }
         if (i !== nums.length - 1) {
             leftCount += nums[i];
-            rightCount -= nums[i + 1];
         } else {
             return -1;
         }
