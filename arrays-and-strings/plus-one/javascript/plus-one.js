@@ -17,24 +17,39 @@ Solution 1
 Level up: What if it were plus 2 or more?
 */
 
+// const plusOne = digits => {
+//     let index = digits.length - 1;
+//     let addToTheLeft = true;
+//     while (addToTheLeft) {
+//         if (index > 0) {
+//             digits[index] = digits[index] + 1;
+//             if (digits[index] > 9) {
+//                 digits[index] -= 10;
+//                 index--;
+//             } else {
+//                 addToTheLeft = false;
+//             }
+//         } else {
+//             digits.unshift(1);
+//             addToTheLeft = false;
+//         }
+//     }
+
+//     return digits;
+// }
+
+// Solution two
+// Focus on the nines
 const plusOne = digits => {
-    let index = digits.length - 1;
-    let addToTheLeft = true;
-    while (addToTheLeft) {
-        if (index > 0) {
-            digits[index] = digits[index] + 1;
-            if (digits[index] > 9) {
-                digits[index] -= 10;
-                index--;
-            } else {
-                addToTheLeft = false;
-            }
+    for (let i = digits.length - 1; i >= 0; i--) {
+        if (digits[i] === 9) {
+            digits[index] = 0;
         } else {
-            digits.unshift(1);
-            addToTheLeft = false;
+            digits[i] = digits[i] + 1;
+            return digits;
         }
     }
-
+    digits.unshift(1);
     return digits;
 }
 
