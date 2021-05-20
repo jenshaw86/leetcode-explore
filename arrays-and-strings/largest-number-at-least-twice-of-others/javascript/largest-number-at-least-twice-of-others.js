@@ -45,23 +45,47 @@ What if had two variables, largest and a nextLargest and identified those number
 Then all we'd have to do next, is compare the largest with the nextLargest * 2
 */
 
+// Second Solution
+// const dominantIndex = nums => {
+//     if (nums.length === 1) {
+//         return 0;
+//     }
 
-const dominantIndex = nums => {
+//     let [largestIndex, secondLargestIndex] = nums[0] >= nums[1] ? [0, 1] : [1, 0];
+//     for (let i = 2; i < nums.length; i++){
+//         if (nums[i] > nums[largestIndex]) {
+//             secondLargestIndex = largestIndex;
+//             largestIndex = i;
+//         } else if (nums[i] > nums[secondLargestIndex]) {
+//             secondLargestIndex = i;
+//         }
+//     }
+
+//     return nums[largestIndex] >= nums[secondLargestIndex] * 2 ? largestIndex : -1;
+//  }
+
+ // Third Solution
+/* Instead of tracking two indices, just track two of the largest numbers and the index of the largest number*/
+ const dominantIndex = nums => {
     if (nums.length === 1) {
         return 0;
     }
 
-    let [largestIndex, secondLargestIndex] = nums[0] >= nums[1] ? [0, 1] : [1, 0];
-    for (let i = 2; i < nums.length; i++){
-        if (nums[i] > nums[largestIndex]) {
-            secondLargestIndex = largestIndex;
-            largestIndex = i;
-        } else if (nums[i] > nums[secondLargestIndex]) {
-            secondLargestIndex = i;
+    let highestNumber = -1; 
+    let secondhighestNumber = -1;
+    let index = -1;  
+
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] > highestNumber) {
+            secondhighestNumber = highestNumber;
+            highestNumber = nums[i];
+            index = i;
+        } else if (nums[i] > secondhighestNumber) {
+            secondhighestNumber = nums[i];
         }
     }
 
-    return nums[largestIndex] >= nums[secondLargestIndex] * 2 ? largestIndex : -1;
+    return highestNumber >= secondhighestNumber * 2 ? index : -1;
  }
 
 module.exports = dominantIndex;
