@@ -12,10 +12,28 @@ Solution 1:
     - Second pass, compare the largest number with each number * 2
         - If the largest number is greater than double all the other numbers, return its index
         - Else, return -1
+    
+    Time complexity: O(2n) or O(n)
+    Space complexity: O(1)
 */
 
-const dominantIndex = () => {
+const dominantIndex = nums => {
+    let max = nums[0];
+    let maxIndex = 0;
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] > max) {
+            max = nums[i];
+            maxIndex = i;
+        }
+    }
 
+    for (let i = 0; i < nums.length; i++) {
+        if (i !== maxIndex && max < nums[i] * 2) {
+            return -1;
+        }
+    }
+
+    return maxIndex;
 }
 
 module.exports = dominantIndex;
