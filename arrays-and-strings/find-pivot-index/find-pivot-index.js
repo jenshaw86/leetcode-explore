@@ -21,10 +21,7 @@ Space complexity = 0(1)
 */
 
 const findPivotIndex = nums => {
-    let sum = 0;
-    nums.forEach(num => {
-        sum += num;
-    });
+    let sum = nums.reduce((a,c) => a + c);
 
     let leftCount = 0;
     let rightCount = sum - nums[0];
