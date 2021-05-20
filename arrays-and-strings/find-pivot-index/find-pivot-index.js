@@ -36,4 +36,10 @@ const findPivotIndex = nums => {
     }
 }
 
+/*
+Areas of improvement: 
+- using reduce method to sum elements in nums array
+- removing rightCount variable and just calculating right count using existing sum, leftCount and nums[i]
+*/
+
 module.exports = findPivotIndex;
