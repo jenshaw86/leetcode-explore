@@ -59,6 +59,31 @@ LinkedList.prototype.addToTail = function(val) {
     }
 }
 
+LinkedList.prototype.addAtIndex = function(index, val) {
+    if (index === 0) {
+        this.addToHead(val);
+        return;
+    }
+    if (this.head === null) {
+        return;
+    }
+    let node = new Node(val);
+    let prev = this.head;
+    let curr = prev.next;
+    for (let i = 1; i <= index; i++) {
+        if (prev === null) {
+            return;
+        }
+        if (prev && i === index) {
+            node.next = curr;
+            prev.next = node;
+            return;
+        } 
+        prev = curr;
+        curr = curr.next;
+    }
+}
+
 module.exports = {
     LinkedList: LinkedList,
     Node: Node
