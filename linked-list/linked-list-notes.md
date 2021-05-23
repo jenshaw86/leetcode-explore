@@ -2,7 +2,9 @@
 
 ## Intro
 
-**Linked lists** are a sequence of nodes, each one containing a value and pointer or reference to the next node. In the case of a **singly linked list**, it would have a *next* pointer that would point to the following node in the sequence from the current node.
+**Linked lists** are a sequence of nodes, each one containing a *value* reference and at least one pointer or reference to another node. In the case of a **singly linked list**, it would have a *next* pointer that would point to the following node in the sequence from the current node.
+
+A linked list has a head reference which points to the beginning of the list.
 
 ## Linked List Operations
 Typically a linked list includes the following operations:
