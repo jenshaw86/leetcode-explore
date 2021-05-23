@@ -8,6 +8,9 @@ Simple Solution:
 Use Javascript's .reverse()
 
 Recursive Solution:
+Base case - when left and right indices intersect or cross
+Recurrence relation - each time recursion method is called, it takes a left index that moves further right, and a right index that moves further left 
+
 space complexity: O(n) to make n/2 swaps
 time complexity: O(n) to keep recursion stack
 */
