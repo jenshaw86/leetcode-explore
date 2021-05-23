@@ -84,6 +84,31 @@ LinkedList.prototype.addAtIndex = function(index, val) {
     }
 }
 
+LinkedList.prototype.removeAtIndex = function(index) {
+    if(this.head === null) {
+        return;
+    }
+    if (index === 0) {
+        this.head = this.head.next;
+        return;
+    }
+
+    let prev = this.head;
+    let curr = prev.next;
+    for (let i = 1; i <= index; i++) {
+        if (curr === null) {
+            return;
+        }        
+        if (i === index) {
+            prev.next = curr.next; 
+            return;
+        } 
+        
+        prev = curr;
+        curr = curr.next;
+    }
+}
+
 module.exports = {
     LinkedList: LinkedList,
     Node: Node
