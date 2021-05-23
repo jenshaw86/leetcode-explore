@@ -19,6 +19,9 @@ LinkedList.prototype.display = function() {
 }
 
 LinkedList.prototype.getValueAt = function(index) {
+    if (index < 0) {
+        throw new RangeError("Index argument must be at least 0");
+    }
     if (this.head === null) {
         return -1;
     }
@@ -60,6 +63,10 @@ LinkedList.prototype.addToTail = function(val) {
 }
 
 LinkedList.prototype.addAtIndex = function(index, val) {
+    if (index < 0) {
+        throw new RangeError("Index argument must be at least 0");
+    }
+
     if (index === 0) {
         this.addToHead(val);
         return;
@@ -85,6 +92,10 @@ LinkedList.prototype.addAtIndex = function(index, val) {
 }
 
 LinkedList.prototype.removeAtIndex = function(index) {
+    if (index < 0) {
+        throw new RangeError("Index argument must be at least 0");
+    }
+    
     if(this.head === null) {
         return;
     }
