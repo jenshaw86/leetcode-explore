@@ -12,7 +12,7 @@ test('[1,2] input has [2,1] output', () => {
     expect(swapPairs(input)).toEqual(output);
 });
 
-xtest('[1,2,3,4] input has [2,1,4,3] output', () => {
+test('[1,2,3,4] input has [2,1,4,3] output', () => {
     const inputList = [1,2,3,4];
     const outputList = [2,1,4,3];
     
