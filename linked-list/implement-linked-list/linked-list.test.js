@@ -51,10 +51,17 @@ test('getValueAt(2) [1,3] returns -1', () => {
 });
 
 // TEST ADD TO TAIL
-test('addToTail(3) to [1], returns [1,2]', () => {
+test('addToTail(3) to [1], returns [1,3]', () => {
     list.addToHead(1);
     list.addToTail(3);
     expect(list.display()).toEqual([1,3]);
+});
+
+test('addToTail(3) to [1,2,3], returns [1,2,3]', () => {
+    list.addToHead(1);
+    list.addToTail(2);
+    list.addToTail(3);
+    expect(list.display()).toEqual([1,2,3]);
 });
 
 test('addToTail[3] to empty list returns [3]', () => {
