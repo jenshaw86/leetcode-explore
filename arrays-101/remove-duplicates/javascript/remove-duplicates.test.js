@@ -45,3 +45,13 @@ test ('empty nums', () => {
 
     expect(nums).toEqual(expectedNums);
 });
+
+test ('single element nums array', () => {
+    const nums = [5];
+    const expectedNums = [5];
+
+    const k = removeDuplicates(nums);
+    expect(k).toEqual(expectedNums.length);
+
+    expect(nums).toEqual(expectedNums);
+});
