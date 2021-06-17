@@ -13,6 +13,10 @@ i is a comparison point
 Compare the two values,
     If they are identical, increment i until it reaches a different value
     Once i reaches a new value, increment j, and replace the value at index j with the value at index i, then increment i    
+
+Space Complexity: O(1)
+Time Complexity: O(n), to process n elements in array
+
 */
 
 const removeDuplicates = nums => {
